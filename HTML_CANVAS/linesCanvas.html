@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas</title>
+    <style>
+        #canvas, #canvas1 {
+            border:1px solid #000000;
+        }
+    </style>
+    <script>
+        window.onload = function (){
+            let canvas = document.getElementById('canvas');
+            let context = canvas.getContext("2d");
+            if(context != null){
+                for(let i = 0; i < 10; ++i){
+                    context.beginPath();
+                    context.lineWidth = i + 1;
+                    context.moveTo(25, 25 + i * 15 );
+                    context.lineTo(475, 25 + i * 15);
+                    context.stroke();
+                }
+            }
+
+            let canvas1 = document.getElementById('canvas1');
+            let context1 = canvas1.getContext("2d");
+            if(context1 != null){
+                context1.strokeStyle = "cyan";
+                context1.lineWidth = 2;
+                context1.beginPath();
+                context1.moveTo(50,25);
+                context1.lineTo(50,175);
+                context1.moveTo(450,25);
+                context1.lineTo(450,175);
+                context1.stroke();
+
+                context1.lineWidth = 15;
+                context1.strokeStyle = 'black';
+                context1.lineCap = 'butt';
+                context1.moveTo(50,50);
+                context1.lineTo(450,50);
+                context1.stroke();
+                context1.lineCap = 'round';
+                context1.beginPath();
+                context1.moveTo(50,100);
+                context1.lineTo(450,100);
+                context1.stroke();
+                context1.lineCap = "square";
+                context1.beginPath();
+                context1.moveTo(50, 150);
+                context1.lineTo(450,150);
+                context1.stroke();
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Canvas properties</h1>
+    <canvas id="canvas" width="500" height="200">Canvas</canvas>
+    <canvas id="canvas1" width="500" height="200">Canvas</canvas>
+</body>
+</html>
